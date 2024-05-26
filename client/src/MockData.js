@@ -6,7 +6,7 @@ export const MockData = [
   },
   {
     id: 2,
-    title: 'JavaScript Algorithms and Data Structures Certification',
+    title: 'JavaScript Algorithms & Data Structures Certification',
     icon: 'fa-solid fa-code',
   },
   {
@@ -21,7 +21,7 @@ export const MockData = [
   },
   {
     id: 5,
-    title: 'Back End Development and APIs Certification',
+    title: 'Back End Development & APIs Certification',
     icon: 'fa-solid fa-code',
   },
 ];
