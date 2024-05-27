@@ -8,6 +8,7 @@ const Navbar = () => {
     localStorage.removeItem('user');
     window.location.reload();
   };
+
   return (
     <main className='flex justify-between items-center bg-black text-white px-4'>
       <section className='relative hidden lg:block'>

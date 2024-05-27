@@ -35,7 +35,7 @@ const SignIn = () => {
   };
 
   const handleGoogleLogin = () => {
-    window.open('http://localhost:5000/auth/google', '_self');
+    window.open('https://freecodecamp-task.onrender.com/auth/google', '_self');
   };
 
   return (
@@ -97,7 +97,7 @@ const SignIn = () => {
               alt='google'
               className='w-12 rounded-full'
             />
-            <p>{loading ? 'loading...' : 'Sign in with Google'}</p>
+            <p>Sign in with Google</p>
           </button>
         </section>
       </form>

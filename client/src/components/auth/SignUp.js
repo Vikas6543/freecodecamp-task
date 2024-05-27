@@ -35,10 +35,6 @@ const SignUp = () => {
     }
   };
 
-  const handleGoogleLogin = () => {
-    window.open('http://localhost:5000/auth/google', '_self');
-  };
-
   return (
     <div className='w-8/12 md:w-4/12 mx-auto mt-20 bg-white'>
       <ToastContainer />
@@ -95,22 +91,6 @@ const SignUp = () => {
               Sign In
             </Link>
           </p>
-
-          <p className='text-center my-3 font-semibold'>OR</p>
-
-          {/* login with google */}
-          <button
-            type='submit'
-            className='group relative w-full gap-2 flex justify-center py-2 px-4 border-2 text-md items-center font-medium rounded-md focus:outline-none bg-gray-100'
-            onClick={handleGoogleLogin}
-          >
-            <img
-              src='https://blog.hubspot.com/hs-fs/hubfs/image8-2.jpg?width=600&name=image8-2.jpg'
-              alt='google'
-              className='w-12 rounded-full'
-            />
-            <p>{loading ? 'loading...' : 'Sign in with Google'}</p>
-          </button>
         </section>
       </form>
     </div>

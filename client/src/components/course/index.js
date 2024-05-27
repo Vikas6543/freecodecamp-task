@@ -4,18 +4,27 @@ import { useNavigate } from 'react-router-dom';
 
 const Course = () => {
   const navigate = useNavigate();
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('token');
+
   const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
-    if (!user) {
+    if (!user && !token) {
       navigate('/signin');
     }
   }, [user]);
 
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem('user', JSON.stringify(token));
+    }
+  }, [token]);
+
   return (
     <main className='w-full lg:w-4/6 mx-auto mt-12 lg:pl-16'>
       <p className='text-center text-3xl font-semibold'>
-        Welcome Back, {user?.user.name}
+        Welcome Back to freeCodeCamp.org
       </p>
 
       <p className='text-center text-xl mt-4 font-semibold'>
