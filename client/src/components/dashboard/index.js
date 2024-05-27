@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
   return (
@@ -34,9 +35,12 @@ const Dashboard = () => {
       </section>
 
       <section className='flex justify-center mt-10'>
-        <button className='bg-orange-400 text-black font-semibold px-12 py-2 rounded text-lg'>
+        <Link
+          to='/courses'
+          className='bg-orange-400 text-black font-semibold px-12 py-2 rounded text-lg'
+        >
           Get Started (It's Free)
-        </button>
+        </Link>
       </section>
     </main>
   );

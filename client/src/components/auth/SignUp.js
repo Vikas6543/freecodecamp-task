@@ -4,7 +4,8 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const SignIn = () => {
+const SignUp = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState('');
@@ -13,16 +14,16 @@ const SignIn = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/user/signin', {
+      const response = await axios.post('http://localhost:5000/user/signup', {
+        name,
         email,
         password,
       });
       if (response) {
-        localStorage.setItem('user', JSON.stringify(response.data));
-        navigate('/courses');
-        window.location.reload();
+        navigate('/signin');
       }
     } catch (error) {
       toast.error(error?.response?.data.message);
@@ -39,8 +40,19 @@ const SignIn = () => {
     <div className='w-8/12 md:w-4/12 mx-auto mt-20 bg-white'>
       <ToastContainer />
       <form onSubmit={submitHandler} className='border shadow-xl p-10'>
-        <p className='text-center font-semibold pb-6 text-3xl'>Sign In</p>
+        <p className='text-center font-semibold pb-6 text-3xl'>Sign Up</p>
         <section>
+          {/* name */}
+          <div className='my-6'>
+            <input
+              type='text'
+              className='w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring focus:ring-gray-200'
+              placeholder='Name'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
           {/* email */}
           <div className='my-6'>
             <input
@@ -75,9 +87,9 @@ const SignIn = () => {
           </button>
 
           <p className='text-center my-3 font-semibold'>
-            Don't have an account?{' '}
-            <Link to='/signup' className='text-blue-500'>
-              Sign Up
+            Already have an account?{' '}
+            <Link to='/signin' className='text-blue-500'>
+              Sign In
             </Link>
           </p>
 
@@ -102,4 +114,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default SignUp;
