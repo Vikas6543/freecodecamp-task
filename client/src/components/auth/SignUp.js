@@ -17,11 +17,14 @@ const SignUp = () => {
 
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/user/signup', {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        'https://freecodecamp-task.onrender.com/user/signup',
+        {
+          name,
+          email,
+          password,
+        }
+      );
       if (response) {
         navigate('/signin');
       }

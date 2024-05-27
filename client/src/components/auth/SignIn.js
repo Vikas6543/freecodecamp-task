@@ -15,10 +15,13 @@ const SignIn = () => {
     e.preventDefault();
     try {
       setLoading(true);
-      const response = await axios.post('http://localhost:5000/user/signin', {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        'https://freecodecamp-task.onrender.com/user/signin',
+        {
+          email,
+          password,
+        }
+      );
       if (response) {
         localStorage.setItem('user', JSON.stringify(response.data));
         navigate('/courses');
